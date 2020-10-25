@@ -7,7 +7,8 @@ Input: Data from StudentRepository
 Output: Gives Information through Public methods.
 */
 
-public class Student extends StudentObserver {
+
+public class Student implements Observer {
     private String id;
     private String first_name;
     private String last_name;
@@ -49,4 +50,10 @@ public class Student extends StudentObserver {
         return this.asurite;
     }
 
+    @Override
+    public void update() {
+
+        System.out.println("Student " + this.id + " is updated.");
+
+    }
 }

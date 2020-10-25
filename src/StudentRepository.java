@@ -11,8 +11,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class StudentRepository implements Container {
-        public ArrayList<Student> students = new ArrayList<>();
+public class StudentRepository implements Container{
+        protected ArrayList<Student> students = new ArrayList<>();
 
         public StudentRepository(String filePath){
             try{
@@ -40,6 +40,11 @@ public class StudentRepository implements Container {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
             }
+        }
+
+
+        public void addStudent(Student s){
+            students.add(s);
         }
 
         @Override
