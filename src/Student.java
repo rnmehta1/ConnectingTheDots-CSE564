@@ -1,7 +1,7 @@
 /*
 Author: Ria Mehta
-File Version: 1.0
-Time required: 3 hours
+File Version: 2.0
+Time required: 5 hours
 Description: Student Class stores information about students.
 Input: Data from StudentRepository
 Output: Gives Information through Public methods.
@@ -48,7 +48,35 @@ public class Student implements Observer {
 
     public String getAsurite(){
         return this.asurite;
+
     }
+
+    //Setter Functions for student info
+    public void setFirst_name(String first_name){
+        this.first_name=first_name;
+        update();
+    }
+
+    public void setLast_name(String last_name){
+        this.last_name=last_name;
+        update();
+    }
+
+    public void setProgramPlan(String programPlan){
+        this.programPlan=programPlan;
+        update();
+    }
+
+    public void setAcademic_level(String academic_level){
+        this.academic_level=academic_level;
+        update();
+    }
+
+    public void setAsurite(String asurite){
+        this.asurite=asurite;
+        update();
+    }
+
 
     public void printValue(){
         System.out.println("ID: "+ getId());
@@ -61,6 +89,9 @@ public class Student implements Observer {
     public void update() {
 
         System.out.println("Student " + this.id + " is updated.");
+        StudentRepository studentRepository= new StudentRepository("roster-x.csv");
+        studentRepository.students.add(this);
+
 
     }
 }
