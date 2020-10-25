@@ -50,6 +50,13 @@ public class Student implements Observer {
         return this.asurite;
     }
 
+    public void printValue(){
+        System.out.println("ID: "+ getId());
+        System.out.println("Name: " + getFirst_name()+ " "+ getLast_name());
+        System.out.println("Program and Plan: " + getProgramPlan());
+        System.out.println("Academic Level: " + getAcademic_level());
+        System.out.println("Asurite: " + getAsurite());
+    }
     @Override
     public void update() {
 

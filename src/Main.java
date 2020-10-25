@@ -32,11 +32,7 @@ public class Main {
         //Print all students
         for(Iterator iter = studentRepository.getIterator(); iter.hasNext();){
             Student student = (Student)iter.next();
-            System.out.println("ID: "+ student.getId());
-            System.out.println("Name: " + student.getFirst_name()+ " "+ student.getLast_name());
-            System.out.println("Program and Plan: " + student.getProgramPlan());
-            System.out.println("Academic Level: " + student.getAcademic_level());
-            System.out.println("Asurite: " + student.getAsurite());
+            student.printValue(); // Different way of Printing all values at once
         }
 
     }
