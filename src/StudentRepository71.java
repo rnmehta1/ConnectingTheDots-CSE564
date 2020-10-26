@@ -11,10 +11,10 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class StudentRepository implements Container{
-        protected ArrayList<Student> students = new ArrayList<>();
+public class StudentRepository71 implements Container71 {
+        protected ArrayList<Student71> student71s = new ArrayList<>();
 
-        public StudentRepository(String filePath){
+        public StudentRepository71(String filePath){
             try{
                 File myObj = new File(filePath);
                 Scanner myReader = new Scanner(myObj);
@@ -31,8 +31,8 @@ public class StudentRepository implements Container{
                 // Start reading data from 3rd line
                 while (myReader.hasNext()){
                     String data = myReader.nextLine();
-                    Student student= new Student(data);
-                    students.add(student);
+                    Student71 student71 = new Student71(data);
+                    student71s.add(student71);
 //                    System.out.println(data);
                 }
                 myReader.close();
@@ -43,23 +43,23 @@ public class StudentRepository implements Container{
         }
 
 
-        public void addStudent(Student s){
-            students.add(s);
+        public void addStudent(Student71 s){
+            student71s.add(s);
         }
 
         @Override
-        public Iterator getIterator() {
-            return new StudentIterator();
+        public Iterator71 getIterator() {
+            return new StudentIterator71();
         }
 
-        private class StudentIterator implements Iterator {
+        private class StudentIterator71 implements Iterator71 {
 
             int index;
 
             @Override
             public boolean hasNext() {
 
-                if(index < students.size()){
+                if(index < student71s.size()){
                     return true;
                 }
                 return false;
@@ -69,7 +69,7 @@ public class StudentRepository implements Container{
             public Object next() {
 
                 if(this.hasNext()){
-                    return students.get(index++);
+                    return student71s.get(index++);
                 }
                 return null;
             }

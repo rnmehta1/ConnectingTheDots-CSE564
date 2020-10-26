@@ -6,8 +6,8 @@ Time required: 5 hours
 import java.util.LinkedList;
 import java.util.List;
 
-class StudentSubject implements Subject {
-    private List<Observer> observers = new LinkedList<>();
+class StudentSubject71 implements Subject71 {
+    private List<Observer71> observers = new LinkedList<>();
     private int state;
 
     public int getState() {
@@ -22,18 +22,18 @@ class StudentSubject implements Subject {
     @Override
     public void notifyAllObservers() {
 
-        for (Observer o : observers)
+        for (Observer71 o : observers)
             o.update();
 
     }
 
     @Override
-    public void register(Observer o) {
+    public void register(Observer71 o) {
         observers.add(o);
     }
 
     @Override
-    public void remove(Observer o) {
+    public void remove(Observer71 o) {
         observers.remove(o);
     }
 

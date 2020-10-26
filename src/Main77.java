@@ -13,23 +13,23 @@ public class Main77 extends JFrame {
      * Creates the frame, file chooser and necessary buttons to generate reports
      */
     public void createFrame(){
-        AtomicReference<StudentRepository> studentRepository = null;
+        AtomicReference<StudentRepository71> studentRepository = null;
         Grader73 grader = new Grader73();
         Reporter reporter = new Reporter();
 
         JButton openRoster = new JButton("Open Roster");
         JButton openGrades = new JButton("Open Grades");
         JButton openAttendance = new JButton("Open Attendance");
-        openRoster.addActionListener(e -> studentRepository.set(new StudentRepository(openFile())));
+        openRoster.addActionListener(e -> studentRepository.set(new StudentRepository71(openFile())));
         openGrades.addActionListener(e -> grader.init(openFile()));
         openAttendance.addActionListener(e -> reporter.studentAttendance(openFile()));
 
-        StudentSubject studentSubject = new StudentSubject();
+        StudentSubject71 studentSubject71 = new StudentSubject71();
         GraphObserver graphObserver = new GraphObserver();
-        studentSubject.register(graphObserver);
+        studentSubject71.register(graphObserver);
         add(graphObserver);
         TableObserver tableObserver = new TableObserver();
-        studentSubject.register(tableObserver);
+        studentSubject71.register(tableObserver);
         add(tableObserver);
 
         JPanel topPanel = new JPanel();
@@ -57,7 +57,7 @@ public class Main77 extends JFrame {
     }
 
     /***
-     * Main class to begin the application
+     * Main71 class to begin the application
      * @param args null
      */
     public static void main(String[] args) {

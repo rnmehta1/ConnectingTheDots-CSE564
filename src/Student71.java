@@ -2,15 +2,15 @@
 Author: Ria Mehta
 File Version: 2.0
 Time required: 5 hours
-Description: Student Class stores information about students.
-Input: Data from StudentRepository
+Description: Student71 Class stores information about student71s.
+Input: Data from StudentRepository71
 Output: Gives Information through Public methods.
 */
 
 
 import java.util.Observable;
 
-public class Student extends Observable {
+public class Student71 extends Observable {
     private String id;
     private String first_name;
     private String last_name;
@@ -19,7 +19,7 @@ public class Student extends Observable {
     private String asurite;
     private String[] data;
 
-    public Student(String studentData){
+    public Student71(String studentData){
         data=studentData.split(",");
         this.id=data[0];
         this.first_name=data[1];
@@ -90,9 +90,9 @@ public class Student extends Observable {
 //
 //    public void update() {
 //
-//        System.out.println("Student " + this.id + " is updated.");
-//        StudentRepository studentRepository= new StudentRepository("roster-x.csv");
-//        studentRepository.students.add(this);
+//        System.out.println("Student71 " + this.id + " is updated.");
+//        StudentRepository71 studentRepository= new StudentRepository71("roster-x.csv");
+//        studentRepository.student71s.add(this);
 //
 //    }
 }

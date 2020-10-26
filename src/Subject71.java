@@ -3,10 +3,10 @@ Author: Ria Mehta
 File Version: 1.0
 Time required: 5 hours
 */
-interface Subject {
+interface Subject71 {
     void notifyAllObservers();
 
-    void register(Observer o);
+    void register(Observer71 o);
 
-    void remove(Observer o);
+    void remove(Observer71 o);
 }
