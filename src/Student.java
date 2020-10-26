@@ -92,6 +92,5 @@ public class Student implements Observer {
         StudentRepository studentRepository= new StudentRepository("roster-x.csv");
         studentRepository.students.add(this);
 
-
     }
 }
