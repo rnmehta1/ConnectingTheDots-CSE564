@@ -8,7 +8,9 @@ Output: Gives Information through Public methods.
 */
 
 
-public class Student implements Observer {
+import java.util.Observable;
+
+public class Student extends Observable {
     private String id;
     private String first_name;
     private String last_name;
@@ -54,27 +56,27 @@ public class Student implements Observer {
     //Setter Functions for student info
     public void setFirst_name(String first_name){
         this.first_name=first_name;
-        update();
+        notifyObservers();
     }
 
     public void setLast_name(String last_name){
         this.last_name=last_name;
-        update();
+        notifyObservers();
     }
 
     public void setProgramPlan(String programPlan){
         this.programPlan=programPlan;
-        update();
+        notifyObservers();
     }
 
     public void setAcademic_level(String academic_level){
         this.academic_level=academic_level;
-        update();
+        notifyObservers();
     }
 
     public void setAsurite(String asurite){
         this.asurite=asurite;
-        update();
+        notifyObservers();
     }
 
 
@@ -85,12 +87,12 @@ public class Student implements Observer {
         System.out.println("Academic Level: " + getAcademic_level());
         System.out.println("Asurite: " + getAsurite());
     }
-    @Override
-    public void update() {
-
-        System.out.println("Student " + this.id + " is updated.");
-        StudentRepository studentRepository= new StudentRepository("roster-x.csv");
-        studentRepository.students.add(this);
-
-    }
+//
+//    public void update() {
+//
+//        System.out.println("Student " + this.id + " is updated.");
+//        StudentRepository studentRepository= new StudentRepository("roster-x.csv");
+//        studentRepository.students.add(this);
+//
+//    }
 }
