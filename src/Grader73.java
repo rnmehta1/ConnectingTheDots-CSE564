@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class Grader73 {
 
-    public int gradeStudents(String filePath) {
+    public int gradeStudents(StudentRepository71 repo,String filePath) {
         BufferedReader br = null;
         String nextLine = null;
         List<String> columns = new ArrayList<>();
@@ -39,21 +39,22 @@ public class Grader73 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Iterator71 studentRepo = StudentRepository71.getIterator();
+        Iterator71 studentRepo = repo.getIterator();
         int unknown = 0;
 
 
         while (studentRepo.hasNext())
         {
-            Student71 temp = studentRepo.next();
+            Student72Decorator temp = (Student72Decorator)studentRepo.next();
             String asurite = temp.getAsurite();
-            if(gradeMap.contains(asurite))
+            if(gradeMap.containsKey(asurite))
             {
                 String grades = gradeMap.get(asurite);
-                String[] gradesSplit = srades.split(',');
+                String[] gradesSplit = grades.split(",");
                 for(int i = 1; i < columns.size(); ++i)
                 {
-                    temp.add(new StudentGrades72Decorator(columns.get(i), gradesSplit.get(i - 1)));
+                    //temp.add(new StudentGrades72Decorator(columns.get(i), Integer.parseInt(gradesSplit[i - 1])), 100);
+                    temp.add(new StudentGrades72Decorator(columns.get(i), Integer.parseInt(gradesSplit[i-1]), 100));
                 }
             }
             else
