@@ -10,8 +10,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Observable;
 
-public class StudentRepository71 implements Container71 {
+
+public class StudentRepository71 extends Observable implements Container71 {
         protected ArrayList<Student71> student71s = new ArrayList<>();
 
         public StudentRepository71(String filePath){
