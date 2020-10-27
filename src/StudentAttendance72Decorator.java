@@ -9,7 +9,7 @@ import java.util.ListIterator;
 public class StudentAttendance72Decorator extends Student72Decorator {
 	
 	public Attendance72 attendValue = new Attendance72();
-	public LinkedList<Attendance72> attendance;
+	public static LinkedList<Attendance72> attendance;
 	
 	public StudentAttendance72Decorator(String date,int minutes) {
 		this.attendValue.setDate(date);
