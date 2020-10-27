@@ -8,7 +8,7 @@ import java.util.LinkedList;
 public class StudentGrades72Decorator extends Student72Decorator {
 	
 	public Grades72 gradeValue = new Grades72();
-	public LinkedList<Grades72> grades;
+	public static LinkedList<Grades72> grades;
 	
 	public StudentGrades72Decorator(String quizName,int quizResult,int max) {
 		this.gradeValue.setQuizName(quizName);
