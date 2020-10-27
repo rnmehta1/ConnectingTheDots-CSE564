@@ -34,7 +34,7 @@ public class StudentRepository71 implements Container71 {
                     Student71 student71 = new Student71(data);
                     student71s.add(student71);
                     setChanged();
-                    notifyObservers(student71);
+                    notifyObservers(student71s);
 //                    System.out.println(data);
                 }
                 myReader.close();
@@ -48,7 +48,7 @@ public class StudentRepository71 implements Container71 {
         public void addStudent(Student71 s){
             student71s.add(s);
             setChanged();
-            notifyObservers(s);
+            notifyObservers(student71s);
         }
 
         @Override
