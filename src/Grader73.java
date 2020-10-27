@@ -11,8 +11,8 @@ import java.util.Map;
 
  *
  * @author Arunima Mookherjee
+ * time taken : 5 hours
  * @version 1.0
- * @time-required 5
  */
 
 public class Grader73 {
@@ -39,35 +39,27 @@ public class Grader73 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        StudentRepo71Iterator studentRepo = StudentRepo71Iterator.getInstance();
+        Iterator71 studentRepo = StudentRepository71.getIterator();
         int unknown = 0;
-        //Added
-        List<Grade72Decorator> gradeLst = new ArrayList<>();
-        //
 
-        for(Iterator<?> iter = studentRepo.getIterator(); iter.hasNext();) {
-            Student72Model student = (Student72CoreData) iter.next();
-            //Added
-            Grade72Decorator gStudent = new Grade72Decorator(student);
 
-            String gradeCard = gradeMap.get(student.getStudentAsurite());
-            if(gradeCard != null) {
-                List<Grade72Model> gradesList = new ArrayList<>();
-                String[] grades = gradeCard.split(",");
-                for(int i = 0; i < grades.length; i++) {
-                    Grade72Model grade = new Grade72Model(columns.get(i + 1), grades[i], "100");
-                    gradesList.add(grade);
+        while (studentRepo.hasNext())
+        {
+            Student71 temp = studentRepo.next();
+            String asurite = temp.getAsurite();
+            if(gradeMap.contains(asurite))
+            {
+                String grades = gradeMap.get(asurite);
+                String[] gradesSplit = srades.split(',');
+                for(int i = 1; i < columns.size(); ++i)
+                {
+                    temp.add(new StudentGrades72Decorator(columns.get(i), gradesSplit.get(i - 1)));
                 }
-                gStudent.add(gradesList);
-                //Added
-                gradeLst.add(gStudent);
             }
             else
+            {
                 unknown++;
-        }
-        //Added
-        for(Grade72Decorator g:gradeLst){
-            studentRepo.add(g);
+            }
         }
         return unknown;
     }
