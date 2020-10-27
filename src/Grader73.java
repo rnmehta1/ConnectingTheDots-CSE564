@@ -8,7 +8,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /**
-
  *
  * @author Arunima Mookherjee
  * time taken : 5 hours
@@ -26,8 +25,8 @@ public class Grader73 {
             br = new BufferedReader(new FileReader(filePath));
             if ((nextLine = br.readLine()) != null) {
                 String[] colNames = nextLine.split(",");
-                for(String colName : colNames)
-                    columns.add(colName);
+                for(String col : colNames)
+                    columns.add(col);
             }
             while((nextLine = br.readLine()) != null) {
                 String[] parts = nextLine.split(",", 2);
@@ -39,6 +38,7 @@ public class Grader73 {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         Iterator71 studentRepo = repo.getIterator();
         int unknown = 0;
 
