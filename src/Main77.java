@@ -16,19 +16,19 @@ public class Main77 extends JFrame {
         AtomicReference<StudentRepository71> studentRepository = null;
         // Grade class
         Grader73 grader = new Grader73();
-        // Report class
-        Report74 reporter = new Report74();
+        // Attendance class
+        AttendanceDecorator74 attendance = new AttendanceDecorator74();
 
         JButton openRoster = new JButton("Open Roster");
         JButton openGrades = new JButton("Open Grades");
         JButton openAttendance = new JButton("Open Attendance");
         openRoster.addActionListener(e -> studentRepository.set(new StudentRepository71(openFile())));
-        openGrades.addActionListener(e -> grader.init(openFile()));
-        openAttendance.addActionListener(e -> reporter.studentAttendance(openFile()));
+        openGrades.addActionListener(e -> grader.gradeStudents(studentRepository, openFile());
+        openAttendance.addActionListener(e -> attendance.decorateStudentsWithAttendance(openFile()));
 
         // Observer for plots and table
         ObserverPlotter76 graphObserver = new ObserverPlotter76();
-        TableObserver tableObserver = new TableObserver();
+        Table75Observer tableObserver = new Table75Observer();
 
         // Attach the observers to the student subject
         StudentSubject71 studentSubject71 = new StudentSubject71();
