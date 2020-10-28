@@ -9,29 +9,29 @@ import java.util.ListIterator;
 public class StudentAttendance72Decorator extends Student72Decorator {
 	
 	public Attendance72 attendValue = new Attendance72();
-	public LinkedList<Attendance72> attendance;
 	
 	public StudentAttendance72Decorator(String date,int minutes) {
 		this.attendValue.setDate(date);
 		this.attendValue.setMinutes(minutes);
-		if (attendance == null) {
-			attendance = new LinkedList<Attendance72>();
-		}
+		addStudentAttendance();
 	}
 	
 	@Override
     public void printValue(){
 		super.printValue();
-	    addStudentAttendance();
+		printStudentAttendance();
     }
 	
-	public void addStudentAttendance() {
-		attendance.add(attendValue);
-		for (Attendance72 attendObject : this.attendance ) {
-			System.out.println("Date: " + attendObject.getDate() + " and minutes attended: " + attendObject.getMinutes());
-			
+	public void printStudentAttendance() {
+		for (Attendance72 attendObject : super.getAttendanceList() ) {
+			System.out.println("Date: " + attendObject.getDate() + " and minutes attended: " + attendObject.getMinutes());	
 		}
+	}
+	
+	public void addStudentAttendance() {
 		
+		LinkedList<Attendance72> attendances = super.getAttendanceList();
+		attendances.add(this.attendValue);
 	}
 
 }
