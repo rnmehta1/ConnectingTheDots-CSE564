@@ -15,9 +15,10 @@ public class Table75Observer extends JPanel implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
-
+        System.out.println("Starting table");
 		// Student Iterator to iterate through all the entries in the student class
-		Iterator iterator = (Iterator) getStudentIterator(o);
+        Iterator71 iterator = ((StudentRepository71)o).getIterator();
+		//Iterator iterator = (Iterator) getStudentIterator(o);
 		ArrayList<String> column_Names = new ArrayList<>();
 		column_Names.add("ID");
 		column_Names.add("First Name");
@@ -63,17 +64,15 @@ public class Table75Observer extends JPanel implements Observer {
 
 		// JTable with list of column names and data_List
 		JTable j_table = new JTable();
+		System.out.println(data_entry.size());
 		DefaultTableModel model = new DefaultTableModel(data_List, columns);
 		j_table.setModel(model);
+		this.add(new JScrollPane(j_table));
 		SwingUtilities.updateComponentTreeUI(this);
-
+        
 	}
 
-	public StudentRepository71 getStudentIterator(Observable o) {
-		return (StudentRepository71) ((StudentRepository71) o).getIterator();
-	}
-
-	public static ArrayList<ArrayList<String>> findData(Iterator iterator) {
+	public static ArrayList<ArrayList<String>> findData(Iterator71 iterator) {
 		ArrayList<ArrayList<String>> data_List = new ArrayList<>();
 		while (iterator.hasNext()) {
 			Student71 studentDetails = (Student71) iterator.next();

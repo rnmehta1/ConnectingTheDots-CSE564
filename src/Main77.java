@@ -18,24 +18,25 @@ public class Main77 extends JFrame {
         // Grade class
         Grader73 grader = new Grader73();
         // Attendance class
-        AttendanceDecorator74 attendance = new AttendanceDecorator74();
-
+        Attendance74 attendance = new Attendance74();
+        Table75Observer tableObserver = new Table75Observer();
+        studentRepository = new StudentRepository71();
+        studentRepository.addObserver(tableObserver);
         JButton openRoster = new JButton("Open Roster");
         JButton openGrades = new JButton("Open Grades");
         JButton openAttendance = new JButton("Open Attendance");
-        openRoster.addActionListener(e -> studentRepository = new StudentRepository71(openFile()));
+        openRoster.addActionListener(e -> { studentRepository.initStudentRepository71(openFile());});
+        
         openGrades.addActionListener(e -> grader.gradeStudents(studentRepository, openFile()));
-        openAttendance.addActionListener(e -> attendance.decorateStudentsWithAttendance(openFile()));
+        openAttendance.addActionListener(e -> attendance.decorateStudentsWithAttendance(studentRepository,openFile()));
 
         // Observer for plots and table
-        ObserverPlotter76 graphObserver = new ObserverPlotter76();
-        Table75Observer tableObserver = new Table75Observer();
+        //ObserverPlotter76 graphObserver = new ObserverPlotter76();
 
         // Attach the observers to the student subject
-        StudentSubject71 studentSubject71 = new StudentSubject71();
-        studentSubject71.register(graphObserver);
-        studentSubject71.register(tableObserver);
-        add(graphObserver);
+        //StudentSubject71 studentSubject71 = new StudentSubject71();
+        //studentSubject71.register(graphObserver);
+        //add(graphObserver);
         add(tableObserver);
 
         JPanel topPanel = new JPanel();
@@ -57,6 +58,7 @@ public class Main77 extends JFrame {
         int returnValue = fileChooser.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
+            System.out.println(selectedFile.getPath());
             return selectedFile.getPath();
         }
         return null;
@@ -67,6 +69,7 @@ public class Main77 extends JFrame {
      * @param args null
      */
     public static void main(String[] args) {
+    	System.out.println("Starting project");
         Main77 main = new Main77();
         main.createFrame();
     }

@@ -21,11 +21,10 @@ public class AttendanceDecorator74 {
 	StudentRepository71 studentRepo;
 	
 	AttendanceDecorator74() {
-		this.studentRepo = new StudentRepository71(); 
+		this.studentRepo = new StudentRepository71("roster-x.csv"); 
 	}
 	
-	public int decorateStudentsWithAttendance(String fileName) {
-		Iterator<StudentCoreData72> studentRepoIterator = this.studentRepo.getIterator(); 
+	public int decorateStudentsWithAttendance(StudentRepository71 repo,String fileName) {
 		
 		
 		List<String[]> attList = new ArrayList<>();
@@ -41,7 +40,7 @@ public class AttendanceDecorator74 {
 			e.printStackTrace();
 		}
 		int flag=1;
-		Map<String, List<Attendance72>> attendanceMap = new HashMap<>();
+		Map<String, String> attendanceMap = new HashMap<>();
 		List<Attendance72> dateList = new ArrayList<>();
 
 		for (int r = 0; r < attList.size(); r++) {
@@ -58,7 +57,7 @@ public class AttendanceDecorator74 {
 							}
 						} else {
 							for (Attendance72 date : dateList) {
-								Attendance72 attendance = (Attendance72) date.clone();
+								Attendance72 attendance = (Attendance72) date;
 								attendance.setMinutes(Integer.valueOf(row[c]));
 								if (attendanceMap.containsKey(row[0])) {
 									attendanceMap.get(row[0]).add(attendance);
@@ -80,10 +79,35 @@ public class AttendanceDecorator74 {
 			}
 			flag=0;
 		}
+		
+        int unknown = 0;
+		Iterator71 studentRepo = repo.getIterator();
 
+        while (studentRepo.hasNext())
+        {
+            Student72Decorator temp = (Student72Decorator)studentRepo.next();
+            String asurite = temp.getAsurite();
+            if(attendanceMap.containsKey(asurite))
+            {
+                String attendance = attendanceMap.get(asurite);
+                String[] gradesSplit = grades.split(",");
+                for(int i = 1; i < columns.size(); ++i)
+                {
+                    //temp.add(new StudentGrades72Decorator(columns.get(i), Integer.parseInt(gradesSplit[i - 1])), 100);
+                    temp.add(new StudentGrades72Decorator(columns.get(i), Integer.parseInt(gradesSplit[i-1]), 100));
+                }
+            }
+            else
+            {
+                unknown++;
+            }
+        }
+        return unknown;
 		
 		
 		int unknown = 0;
+        Iterator71 studentRepo = repo.getIterator();
+        
 		List<StudentAttendance72Decorator> studentsAttendanceDecoratorBeanList = new ArrayList<>();
 		while (studentRepoIterator.hasNext()) {
 			StudentCoreData72 student = studentRepoIterator.next();
@@ -95,6 +119,7 @@ public class AttendanceDecorator74 {
 				for (Attendance72 attend : attendanceList) {
 //					studentAttendanceDecorator.addStudentAttendance(attend);
 					studentAttendanceDecorator.attendValue=attend;		///////// 
+					studentAttendanceDecorator.addStudentAttendance();
 					studentAttendanceDecorator.addStudentAttendance();
 				}
 

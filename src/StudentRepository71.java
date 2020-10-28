@@ -9,15 +9,21 @@ Output: iterator for objects
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Observable;
+import java.util.Observer;
 
 
 public class StudentRepository71 extends Observable implements Container71 {
-        protected ArrayList<Student71> student71s = new ArrayList<>();
 
-        public StudentRepository71(String filePath){
+        protected ArrayList<Student71> student71s = new ArrayList<>();
+        //private List<Observer> observers = new LinkedList<>();
+
+        public void initStudentRepository71(String filePath){
             try{
+            	System.out.println("Entered student repo");
                 File myObj = new File(filePath);
                 Scanner myReader = new Scanner(myObj);
                 int countLine=0;
@@ -34,10 +40,11 @@ public class StudentRepository71 extends Observable implements Container71 {
                 while (myReader.hasNext()){
                     String data = myReader.nextLine();
                     Student71 student71 = new StudentCoreData72(data);
-                    student71s.add(student71);
-                    setChanged();
-                    notifyObservers(student71s);
-//                    System.out.println(data);
+                    addStudent(student71);
+                    //student71s.add(student71);
+                    //setChanged();
+                    //notifyObservers(student71s);
+                    System.out.println(data);
                 }
                 myReader.close();
             } catch(FileNotFoundException e) {
@@ -46,11 +53,12 @@ public class StudentRepository71 extends Observable implements Container71 {
             }
         }
 
-
-        public void addStudent(Student71 s){
+		public void addStudent(Student71 s){
+			System.out.println("adding student");
             student71s.add(s);
             setChanged();
             notifyObservers(student71s);
+            
         }
 
         @Override
@@ -80,4 +88,9 @@ public class StudentRepository71 extends Observable implements Container71 {
                 return null;
             }
         }
+
+		/*public void register(Table75Observer tableObserver) {
+			observers.add(tableObserver);
+			
+		}*/
 }
