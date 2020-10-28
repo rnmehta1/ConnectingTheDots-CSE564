@@ -24,7 +24,7 @@ public class Main71 {
 
         //Observer71 Pattern
         //An example of adding a new student
-        Student71 newStudent71 = new Student71("1230321,Ria,Mehta,Software Engineering MS,Graduate,rnmehta1");
+        Student71 newStudent71 = new StudentCoreData72("1230321,Ria,Mehta,Software Engineering MS,Graduate,rnmehta1");
         studentSubject71.setState(1);  //Add student
         studentRepository71.addStudent(newStudent71);
         //Print all student71s
