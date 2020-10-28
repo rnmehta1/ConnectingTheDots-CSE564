@@ -19,6 +19,7 @@ import java.util.Observer;
 public class StudentRepository71 extends Observable implements Container71 {
 
         protected ArrayList<Student71> student71s = new ArrayList<>();
+        protected ArrayList<StudentAttendance72Decorator> student72Decorator = new ArrayList<StudentAttendance72Decorator>();
         //private List<Observer> observers = new LinkedList<>();
 
         public void initStudentRepository71(String filePath){
@@ -51,6 +52,11 @@ public class StudentRepository71 extends Observable implements Container71 {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
             }
+        }
+        
+        public void objectDecorated() {
+        	setChanged();
+        	notifyObservers(student71s);
         }
 
 		public void addStudent(Student71 s){

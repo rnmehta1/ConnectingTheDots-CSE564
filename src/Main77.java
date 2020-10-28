@@ -18,7 +18,7 @@ public class Main77 extends JFrame {
         // Grade class
         Grader73 grader = new Grader73();
         // Attendance class
-        Attendance74 attendance = new Attendance74();
+        AttendanceDecorator74 attendance = new AttendanceDecorator74();
         Table75Observer tableObserver = new Table75Observer();
         studentRepository = new StudentRepository71();
         studentRepository.addObserver(tableObserver);

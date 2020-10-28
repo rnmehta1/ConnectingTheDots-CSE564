@@ -14,6 +14,7 @@ public class Table75Observer extends JPanel implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
+		this.removeAll();
 		// TODO Auto-generated method stub
         System.out.println("Starting table");
 		// Student Iterator to iterate through all the entries in the student class
@@ -29,6 +30,7 @@ public class Table75Observer extends JPanel implements Observer {
 
 		// List of Grades Object
 		LinkedList<Grades72> grades_List = StudentGrades72Decorator.grades;
+		System.out.println(grades_List.size());
 		if (grades_List.size() > 0) {
 			for (Grades72 gList : grades_List) {
 				if (!column_Names.contains(gList.quizName)) {
@@ -39,6 +41,7 @@ public class Table75Observer extends JPanel implements Observer {
 
 		// List of Attendance Object
 		LinkedList<Attendance72> attendance_List = StudentAttendance72Decorator.attendanceList;
+		System.out.println("attendance size- " + attendance_List.size());
 		if (attendance_List.size() > 0) {
 			for (Attendance72 attList : attendance_List) {
 				if (!column_Names.contains(attList.date)) {

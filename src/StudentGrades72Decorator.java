@@ -24,8 +24,9 @@ public class StudentGrades72Decorator extends Student72Decorator {
 	
 	public void addStudentGrades() {
 		
-		LinkedList<Grades72> grades = super.getGrades();
-		grades.add(this.gradeValue);
+		//LinkedList<Grades72> grades = super.getGrades();
+		//grades.add(this.gradeValue);
+		super.setGrades(gradeValue);
 	}
 	
 	public void printStudentGrades() {

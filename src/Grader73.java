@@ -23,12 +23,12 @@ public class Grader73 {
         Map<String, String> gradeMap = new HashMap<>();
         try {
             br = new BufferedReader(new FileReader(filePath));
-            if ((nextLine = br.readLine()) != null) {
+            if ((nextLine = br.readLine()) != null && nextLine.contains(",")) {
                 String[] colNames = nextLine.split(",");
                 for(String col : colNames)
                     columns.add(col);
             }
-            while((nextLine = br.readLine()) != null) {
+            while((nextLine = br.readLine()) != null && nextLine.contains(",")) {
                 String[] parts = nextLine.split(",", 2);
                 gradeMap.put(parts[0], parts[1]);
             }
@@ -45,7 +45,8 @@ public class Grader73 {
 
         while (studentRepo.hasNext())
         {
-            Student72Decorator temp = (Student72Decorator)studentRepo.next();
+        	StudentCoreData72 temp = (StudentCoreData72) studentRepo.next();
+            //Student72Decorator temp = (Student72Decorator)studentRepo.next();	
             String asurite = temp.getAsurite();
             if(gradeMap.containsKey(asurite))
             {
@@ -54,7 +55,7 @@ public class Grader73 {
                 for(int i = 1; i < columns.size(); ++i)
                 {
                     //temp.add(new StudentGrades72Decorator(columns.get(i), Integer.parseInt(gradesSplit[i - 1])), 100);
-                    temp.add(new StudentGrades72Decorator(columns.get(i), Integer.parseInt(gradesSplit[i-1]), 100));
+                    new StudentGrades72Decorator(columns.get(i), Integer.parseInt(gradesSplit[i-1]), 100);         
                 }
             }
             else
@@ -62,6 +63,7 @@ public class Grader73 {
                 unknown++;
             }
         }
+        repo.objectDecorated();
         return unknown;
     }
 
