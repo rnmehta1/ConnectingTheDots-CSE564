@@ -92,7 +92,7 @@ public class Table75Observer extends JPanel implements Observer {
 				}
 			}
 
-			LinkedList<Attendance72> attendance_List = StudentAttendance72Decorator.attendance;
+			LinkedList<Attendance72> attendance_List = StudentAttendance72Decorator.attendanceList;
 			if (attendance_List.size() > 0) {
 				for (Attendance72 attList : attendance_List) {
 					student.add(String.valueOf(attList.minutes));

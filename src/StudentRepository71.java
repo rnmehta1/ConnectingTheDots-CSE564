@@ -33,7 +33,7 @@ public class StudentRepository71 extends Observable implements Container71 {
                 // Start reading data from 3rd line
                 while (myReader.hasNext()){
                     String data = myReader.nextLine();
-                    Student71 student71 = new Student71(data);
+                    Student71 student71 = new StudentCoreData72(data);
                     student71s.add(student71);
                     setChanged();
                     notifyObservers(student71s);

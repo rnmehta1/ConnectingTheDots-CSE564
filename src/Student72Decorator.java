@@ -7,8 +7,8 @@ import java.util.LinkedList;
 public class Student72Decorator extends Student71 {
 	
 	protected Student71 student;
-	protected LinkedList<Grades72> grades = new LinkedList<Grades72>();
-	protected LinkedList<Attendance72> attendanceList = new LinkedList<Attendance72>();
+	protected static LinkedList<Grades72> grades = new LinkedList<Grades72>();
+	protected static LinkedList<Attendance72> attendanceList = new LinkedList<Attendance72>();
 	
 	public void add(Student71 student) {
 		this.student = student;

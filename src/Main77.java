@@ -23,7 +23,7 @@ public class Main77 extends JFrame {
         JButton openGrades = new JButton("Open Grades");
         JButton openAttendance = new JButton("Open Attendance");
         openRoster.addActionListener(e -> studentRepository.set(new StudentRepository71(openFile())));
-        openGrades.addActionListener(e -> grader.gradeStudents(studentRepository, openFile());
+        openGrades.addActionListener(e -> grader.gradeStudents(studentRepository, openFile()));
         openAttendance.addActionListener(e -> attendance.decorateStudentsWithAttendance(openFile()));
 
         // Observer for plots and table
