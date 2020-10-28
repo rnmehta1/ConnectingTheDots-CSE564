@@ -12,8 +12,9 @@ public class Main77 extends JFrame {
     /***
      * Creates the frame, file chooser and necessary buttons to generate reports
      */
+	
+	StudentRepository71 studentRepository ;
     public void createFrame(){
-        AtomicReference<StudentRepository71> studentRepository = null;
         // Grade class
         Grader73 grader = new Grader73();
         // Attendance class
@@ -22,7 +23,7 @@ public class Main77 extends JFrame {
         JButton openRoster = new JButton("Open Roster");
         JButton openGrades = new JButton("Open Grades");
         JButton openAttendance = new JButton("Open Attendance");
-        openRoster.addActionListener(e -> studentRepository.set(new StudentRepository71(openFile())));
+        openRoster.addActionListener(e -> studentRepository = new StudentRepository71(openFile()));
         openGrades.addActionListener(e -> grader.gradeStudents(studentRepository, openFile()));
         openAttendance.addActionListener(e -> attendance.decorateStudentsWithAttendance(openFile()));
 

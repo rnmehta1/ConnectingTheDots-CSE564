@@ -37,7 +37,7 @@ public class Table75Observer extends JPanel implements Observer {
 		}
 
 		// List of Attendance Object
-		LinkedList<Attendance72> attendance_List = StudentAttendance72Decorator.attendance;
+		LinkedList<Attendance72> attendance_List = StudentAttendance72Decorator.attendanceList;
 		if (attendance_List.size() > 0) {
 			for (Attendance72 attList : attendance_List) {
 				if (!column_Names.contains(attList.date)) {
