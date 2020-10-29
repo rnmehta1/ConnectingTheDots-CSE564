@@ -30,8 +30,7 @@ public class StudentAttendance72Decorator extends Student72Decorator {
 	
 	public void addStudentAttendance() {
 		
-		LinkedList<Attendance72> attendances = super.getAttendanceList();
-		attendances.add(this.attendValue);
+		super.setAttendanceList(attendValue);
 	}
 
 }

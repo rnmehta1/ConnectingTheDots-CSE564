@@ -58,7 +58,6 @@ public class Main77 extends JFrame {
         int returnValue = fileChooser.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            System.out.println(selectedFile.getPath());
             return selectedFile.getPath();
         }
         return null;
@@ -69,7 +68,6 @@ public class Main77 extends JFrame {
      * @param args null
      */
     public static void main(String[] args) {
-    	System.out.println("Starting project");
         Main77 main = new Main77();
         main.createFrame();
     }

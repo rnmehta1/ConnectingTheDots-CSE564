@@ -24,7 +24,6 @@ public class StudentRepository71 extends Observable implements Container71 {
 
         public void initStudentRepository71(String filePath){
             try{
-            	System.out.println("Entered student repo");
                 File myObj = new File(filePath);
                 Scanner myReader = new Scanner(myObj);
                 int countLine=0;
@@ -42,14 +41,9 @@ public class StudentRepository71 extends Observable implements Container71 {
                     String data = myReader.nextLine();
                     Student71 student71 = new StudentCoreData72(data);
                     addStudent(student71);
-                    //student71s.add(student71);
-                    //setChanged();
-                    //notifyObservers(student71s);
-                    System.out.println(data);
                 }
                 myReader.close();
             } catch(FileNotFoundException e) {
-                System.out.println("An error occurred.");
                 e.printStackTrace();
             }
         }
@@ -60,7 +54,6 @@ public class StudentRepository71 extends Observable implements Container71 {
         }
 
 		public void addStudent(Student71 s){
-			System.out.println("adding student");
             student71s.add(s);
             setChanged();
             notifyObservers(student71s);

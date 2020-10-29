@@ -78,8 +78,6 @@ public class StudentCoreData72 extends Student71 {
         this.asurite=asurite;
         notifyObservers();
     }
-    
-    //------------------------------------------------------------------------
 
 	public LinkedList<Grades72> getGrades() {
 		return gradesList;
@@ -108,20 +106,4 @@ public class StudentCoreData72 extends Student71 {
 		}
 	}
 
-
-    /*public void printValue(){
-        System.out.println("ID: "+ getId());
-        System.out.println("Name: " + getFirst_name()+ " "+ getLast_name());
-        System.out.println("Program and Plan: " + getProgramPlan());
-        System.out.println("Academic Level: " + getAcademic_level());
-        System.out.println("Asurite: " + getAsurite());
-    }*/
-//
-//    public void update() {
-//
-//        System.out.println("Student " + this.id + " is updated.");
-//        StudentRepository studentRepository= new StudentRepository("roster-x.csv");
-//        studentRepository.students.add(this);
-//
-//    }
 }
