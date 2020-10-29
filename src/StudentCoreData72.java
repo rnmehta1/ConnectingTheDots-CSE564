@@ -86,7 +86,13 @@ public class StudentCoreData72 extends Student71 {
 	}
 
 	public void setGrades(LinkedList<Grades72> grades) {
-		StudentCoreData72.grades = grades;
+		for (Grades72 grade : grades) {
+		       Grades72 gradeNew = new Grades72();
+		       gradeNew.setQuizName(grade.getQuizName());
+		       gradeNew.setResult(grade.getResult());
+		       gradeNew.setMaxMarks(grade.getMaxMarks());
+		       StudentCoreData72.grades.add(gradeNew);
+		}
 	}
 
 	public LinkedList<Attendance72> getAttendanceList() {
@@ -94,7 +100,12 @@ public class StudentCoreData72 extends Student71 {
 	}
 
 	public void setAttendanceList(LinkedList<Attendance72> attendanceList) {
-		StudentCoreData72.attendanceList = attendanceList;
+		for (Attendance72 attendance : attendanceList) {
+			   Attendance72 attendNew = new Attendance72();
+			   attendNew.setDate(attendance.getDate());
+			   attendNew.setMinutes(attendance.getMinutes());
+		       StudentCoreData72.attendanceList.add(attendNew);
+		}
 	}
 
 

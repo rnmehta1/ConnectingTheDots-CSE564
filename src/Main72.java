@@ -10,7 +10,11 @@ public class Main72 {
 	Student71 newStudent= new StudentCoreData72("1230321,Ria,Mehta,Software Engineering MS,Graduate,rnmehta1");
 	//adding decorator pattern objects
 	StudentAttendance72Decorator attendanceCard = new StudentAttendance72Decorator ("10/26", 72);
+	StudentAttendance72Decorator attendanceCard2 = new StudentAttendance72Decorator ("10/27", 11);
+	StudentAttendance72Decorator attendanceCard3 = new StudentAttendance72Decorator ("10/28", 30);
 	StudentGrades72Decorator gradesCard = new StudentGrades72Decorator ("Quiz 1", 75, 100); //75%
+	StudentGrades72Decorator gradesCard2 = new StudentGrades72Decorator ("Quiz 2", 75, 100); //75%
+	StudentGrades72Decorator gradesCard3 = new StudentGrades72Decorator ("Quiz 3", 79, 100); //79%
 
 	//StudentGrades72Decorator gradesCard2 = new StudentGrades72Decorator ("Quiz 2", 75, 100); //75%
 	/* each decorator object corresponds to one row in either the grades csv or attendance csv. every new row, create an object ,
@@ -37,10 +41,13 @@ public class Main72 {
 	}
 	
 	 newStudent.setGrades(gradesCard.getGrades());// storing student wise
-	 System.out.println(newStudent.getGrades());
+	 System.out.println("Student object grades are : " + newStudent.getGrades());
 	 
 	 StudentGrades72Decorator.grades.clear();
 	 StudentAttendance72Decorator.attendanceList.clear();
+	 
+	 System.out.println(" student object grades after clearing are " +newStudent.getGrades());
+	 
 	 LinkedList<Grades72> grades_List2 = StudentGrades72Decorator.grades;
 		System.out.println(grades_List.size());
 		if (grades_List2.size() > 0) {
@@ -61,21 +68,42 @@ public class Main72 {
 			System.out.println("attendance list clear");
 		}
 		
-		System.out.println("new student grades are " +newStudent.getGrades());
+		System.out.println(" student grades are " +newStudent.getGrades());
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ stored for a student, now we remove instantiated decorator
 	
+    System.out.println("                      Now for a new student                           ");
     
-    
-	/*Student71 newStudent2= new StudentCoreData72("1230322,Anurag,Mishra,Software Engineering MS,Graduate,amishr57");
-    StudentAttendance72Decorator attendanceCard2 = new StudentAttendance72Decorator ("10/28", 78);
-	StudentGrades72Decorator gradesCard2 = new StudentGrades72Decorator ("Quiz 2", 72, 100); //72%
-	StudentGrades72Decorator gradesCard3 = new StudentGrades72Decorator ("Quiz 3", 70, 100); //72% */
+	Student71 newStudent2= new StudentCoreData72("1230322,Anurag,Mishra,Software Engineering MS,Graduate,amishr57");
+    StudentAttendance72Decorator attendanceCard7 = new StudentAttendance72Decorator ("10/26", 78);
+    StudentAttendance72Decorator attendanceCard8 = new StudentAttendance72Decorator ("10/27", 78);
+    StudentAttendance72Decorator attendanceCard9 = new StudentAttendance72Decorator ("10/28", 78);
+	StudentGrades72Decorator gradesCard7 = new StudentGrades72Decorator ("Quiz 2", 50, 100); //50%
+	StudentGrades72Decorator gradesCard8 = new StudentGrades72Decorator ("Quiz 3", 51, 100); //51% 
 	
+	gradesCard7.add(attendanceCard7);
+    attendanceCard.add(newStudent2);
+    gradesCard7.printValue();
 	
+    //======================================================
+    LinkedList<Grades72> grades_List3 = StudentGrades72Decorator.grades;
+	System.out.println(grades_List3.size());
+	if (grades_List3.size() > 0) {
+		for (Grades72 gList : grades_List3) {
+			System.out.println(gList.getResult());
+		}
+	}//------------------------------------------------------
+	LinkedList<Attendance72> attendance_List3 = StudentAttendance72Decorator.attendanceList;
+	System.out.println("attendance size- " + attendance_List3.size());
+	if (attendance_List3.size() > 0) {
+		for (Attendance72 attList : attendance_List3) {
+			System.out.println(attList.getMinutes());
+		}
+	}
+	newStudent.setGrades(gradesCard.getGrades());// storing student wise
+	 System.out.println(newStudent.getGrades());
 	
-	
-	
-	
+	 StudentGrades72Decorator.grades.clear();
+	 StudentAttendance72Decorator.attendanceList.clear();
 	
 	
 	
