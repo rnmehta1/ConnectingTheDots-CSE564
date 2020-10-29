@@ -16,7 +16,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 
-public class StudentRepository71 extends Observable implements Container71 {
+public class StudentRepository71Iterator extends Observable implements Container71 {
 
         protected ArrayList<Student71> student71s = new ArrayList<>();
         protected ArrayList<StudentAttendance72Decorator> student72Decorator = new ArrayList<StudentAttendance72Decorator>();
@@ -47,7 +47,9 @@ public class StudentRepository71 extends Observable implements Container71 {
                 e.printStackTrace();
             }
         }
-        
+
+
+
         public void objectDecorated() {
         	setChanged();
         	notifyObservers(student71s);

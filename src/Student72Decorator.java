@@ -35,6 +35,7 @@ public class Student72Decorator extends Student71 {
 		return this.student.getFirst_name();
 	}
 
+
 	@Override
 	public String getLast_name() {
 		// TODO Auto-generated method stub
@@ -82,4 +83,7 @@ public class Student72Decorator extends Student71 {
 		this.attendanceList.add(attendance);
 	}
 
+	public void setStudent72DecoratorGrade(LinkedList<String> gradesList, String asurite){
+		Iterator71 iter= new
+	}
 }

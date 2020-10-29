@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Attendance74Decorator {
 	
-	public int decorateStudentsWithAttendance(StudentRepository71 repo,String filePath) {
+	public int decorateStudentsWithAttendance(StudentRepository71Iterator repo, String filePath) {
         BufferedReader br = null;
         String nextLine = null;
         List<String> columns = new ArrayList<>();

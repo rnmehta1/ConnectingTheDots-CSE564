@@ -15,7 +15,7 @@ public class Table75Observer extends JPanel implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		this.removeAll();
-        Iterator71 iterator = ((StudentRepository71)o).getIterator();
+        Iterator71 iterator = ((StudentRepository71Iterator)o).getIterator();
 		ArrayList<String> column_Names = new ArrayList<>();
 		column_Names.add("ID");
 		column_Names.add("First Name");
@@ -47,7 +47,7 @@ public class Table75Observer extends JPanel implements Observer {
 		}
 		}
 		
-		iterator = ((StudentRepository71)o).getIterator();
+		iterator = ((StudentRepository71Iterator)o).getIterator();
 		
 		String[] columns = new String[column_Names.size()];
 		int i = 0;

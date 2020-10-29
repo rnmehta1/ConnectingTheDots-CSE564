@@ -21,7 +21,7 @@ import org.jfree.data.general.DatasetChangeListener;
 import org.jfree.data.general.DatasetUtilities;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
-import java.io.*;
+
 import java.util.*;
 
 public class Plotter76Observer extends ApplicationFrame implements Observer{
@@ -44,7 +44,7 @@ public class Plotter76Observer extends ApplicationFrame implements Observer{
     @Override
     public void update(Observable o, Object arg) {
 
-    	Iterator71 iterator = ((StudentRepository71)o).getIterator();
+    	Iterator71 iterator = ((StudentRepository71Iterator)o).getIterator();
     	while(iterator.hasNext())
 		{
 			Student71 obj = (Student71) iterator.next();
@@ -53,8 +53,8 @@ public class Plotter76Observer extends ApplicationFrame implements Observer{
         ArrayList<String> column_Names = new ArrayList<>();
         }
     
-    public StudentRepository71 getStudentIterator(Observable o) {
-        return (StudentRepository71) ((StudentRepository71) o).getIterator();
+    public StudentRepository71Iterator getStudentIterator(Observable o) {
+        return (StudentRepository71Iterator) ((StudentRepository71Iterator) o).getIterator();
     }
     
     private CategoryDataset createDataset() {

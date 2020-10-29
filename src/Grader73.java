@@ -4,7 +4,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /**
@@ -16,7 +15,7 @@ import java.util.Map;
 
 public class Grader73 {
 
-    public int gradeStudents(StudentRepository71 repo,String filePath) {
+    public int gradeStudents(StudentRepository71Iterator repo, String filePath) {
         BufferedReader br = null;
         String nextLine = null;
         List<String> columns = new ArrayList<>();

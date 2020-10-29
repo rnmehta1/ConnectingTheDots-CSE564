@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author Harshita Paila
@@ -13,14 +12,14 @@ public class Main77 extends JFrame {
      * Creates the frame, file chooser and necessary buttons to generate reports
      */
 	
-	StudentRepository71 studentRepository ;
+	StudentRepository71Iterator studentRepository ;
     public void createFrame(){
         // Grade class
         Grader73 grader = new Grader73();
         // Attendance class
         Attendance74Decorator attendance = new Attendance74Decorator();
         Table75Observer tableObserver = new Table75Observer();
-        studentRepository = new StudentRepository71();
+        studentRepository = new StudentRepository71Iterator();
         studentRepository.addObserver(tableObserver);
         JButton openRoster = new JButton("Open Roster");
         JButton openGrades = new JButton("Open Grades");

@@ -3,7 +3,7 @@ Author: Ria Mehta
 File Version: 2.0
 Time required: 5 hours
 Description: Student71 Class stores information about student71s.
-Input: Data from StudentRepository71
+Input: Data from StudentRepository71Iterator
 Output: Gives Information through Public methods.
 */
 
