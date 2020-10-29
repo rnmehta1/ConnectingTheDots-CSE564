@@ -28,8 +28,14 @@ public class Table75Observer extends JPanel implements Observer {
 		column_Names.add("Academic Level");
 		column_Names.add("ASURITE");
 
+		while(iterator.hasNext())
+		{
+			Student71 obj = (Student71) iterator.next();
+			LinkedList<Grades72> grades_List= obj.getGrades();
+			
+		
 		// List of Grades Object
-		LinkedList<Grades72> grades_List = StudentGrades72Decorator.grades;
+		 //= StudentGrades72Decorator.grades;
 		System.out.println("grade size- " + grades_List.size());
 		if (grades_List.size() > 0) {
 			for (Grades72 gList : grades_List) {
@@ -40,8 +46,8 @@ public class Table75Observer extends JPanel implements Observer {
 		}
 
 		// List of Attendance Object
-		LinkedList<Attendance72> attendance_List = StudentAttendance72Decorator.attendanceList;
-		System.out.println("attendance size- " + attendance_List.size());
+		LinkedList<Attendance72> attendance_List = obj.getAttendanceList();
+//		System.out.println("attendance size- " + attendance_List.size());
 		if (attendance_List.size() > 0) {
 			for (Attendance72 attList : attendance_List) {
 				if (!column_Names.contains(attList.date)) {
@@ -49,7 +55,11 @@ public class Table75Observer extends JPanel implements Observer {
 				}
 			}
 		}
-
+		}
+		
+		iterator = ((StudentRepository71)o).getIterator();
+		System.out.println("Column-size "+column_Names.size());
+		
 		String[] columns = new String[column_Names.size()];
 		int i = 0;
 		for (String col : column_Names) {
@@ -58,6 +68,7 @@ public class Table75Observer extends JPanel implements Observer {
 
 		ArrayList<ArrayList<String>> data_entry = new ArrayList<>();
 		data_entry = findData(iterator);
+		System.out.println("Table Datas size "+ data_entry.size());
 		String data_List[][] = new String[data_entry.size()][columns.length];
 		for (i = 0; i < data_entry.size(); i++) {
 			for (int j = 0; j < data_entry.get(i).size(); j++) {
@@ -87,14 +98,18 @@ public class Table75Observer extends JPanel implements Observer {
 			student.add(studentDetails.getAcademic_level());
 			student.add(studentDetails.getAsurite());
 
-			LinkedList<Grades72> grades_List = StudentGrades72Decorator.grades;
+			//LinkedList<Grades72> grades_List = StudentGrades72Decorator.grades;
+			LinkedList<Grades72> grades_List= studentDetails.getGrades();
+			
+			System.out.println("Data Grades "+grades_List.size());
 			if (grades_List.size() > 0) {
 				for (Grades72 gList : grades_List) {
 					student.add(String.valueOf(gList.result));
 				}
 			}
 
-			LinkedList<Attendance72> attendance_List = StudentAttendance72Decorator.attendanceList;
+			LinkedList<Attendance72> attendance_List =studentDetails.getAttendanceList();
+			System.out.println("Attendance List "+attendance_List.size());
 			if (attendance_List.size() > 0) {
 				for (Attendance72 attList : attendance_List) {
 					student.add(String.valueOf(attList.minutes));

@@ -16,8 +16,8 @@ public class StudentCoreData72 extends Student71 {
     private String academic_level;
     private String asurite;
     private String[] data;
-    private static LinkedList<Grades72> grades = new LinkedList<Grades72>();
-	private static LinkedList<Attendance72> attendanceList = new LinkedList<Attendance72>();
+    private LinkedList<Grades72> gradesList = new LinkedList<Grades72>();
+	private LinkedList<Attendance72> attendanceList2 = new LinkedList<Attendance72>();
 
     public StudentCoreData72(String studentData){
         data=studentData.split(",");
@@ -82,7 +82,7 @@ public class StudentCoreData72 extends Student71 {
     //------------------------------------------------------------------------
 
 	public LinkedList<Grades72> getGrades() {
-		return grades;
+		return gradesList;
 	}
 
 	public void setGrades(LinkedList<Grades72> grades) {
@@ -91,12 +91,12 @@ public class StudentCoreData72 extends Student71 {
 		       gradeNew.setQuizName(grade.getQuizName());
 		       gradeNew.setResult(grade.getResult());
 		       gradeNew.setMaxMarks(grade.getMaxMarks());
-		       StudentCoreData72.grades.add(gradeNew);
+		       gradesList.add(gradeNew);
 		}
 	}
 
 	public LinkedList<Attendance72> getAttendanceList() {
-		return attendanceList;
+		return attendanceList2;
 	}
 
 	public void setAttendanceList(LinkedList<Attendance72> attendanceList) {
@@ -104,7 +104,7 @@ public class StudentCoreData72 extends Student71 {
 			   Attendance72 attendNew = new Attendance72();
 			   attendNew.setDate(attendance.getDate());
 			   attendNew.setMinutes(attendance.getMinutes());
-		       StudentCoreData72.attendanceList.add(attendNew);
+			   attendanceList2.add(attendNew);
 		}
 	}
 
