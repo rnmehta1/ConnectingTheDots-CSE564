@@ -8,6 +8,7 @@ Output: Gives Information through Public methods.
 */
 
 
+import java.util.LinkedList;
 import java.util.Observable;
 
 public abstract class Student71 extends Observable {
@@ -24,8 +25,22 @@ public abstract class Student71 extends Observable {
     public abstract String getAcademic_level();
     
     public abstract String getAsurite();
+    
+    public abstract LinkedList<Grades72> getGrades();
+    
+    public abstract LinkedList<Attendance72> getAttendanceList();
 
     //Setter Functions for student info
+    
+	public void setGrades(LinkedList<Grades72> grades) {
+		notifyObservers();
+	}
+
+
+	public void setAttendanceList(LinkedList<Attendance72> attendanceList) {
+		notifyObservers();
+	}
+	
     public void setFirst_name(String first_name) {
     	 notifyObservers();
     }

@@ -30,7 +30,7 @@ public class Table75Observer extends JPanel implements Observer {
 
 		// List of Grades Object
 		LinkedList<Grades72> grades_List = StudentGrades72Decorator.grades;
-		System.out.println(grades_List.size());
+		System.out.println("grade size- " + grades_List.size());
 		if (grades_List.size() > 0) {
 			for (Grades72 gList : grades_List) {
 				if (!column_Names.contains(gList.quizName)) {

@@ -46,7 +46,8 @@ public class Grader73 {
         while (studentRepo.hasNext())
         {
         	StudentCoreData72 temp = (StudentCoreData72) studentRepo.next();
-            //Student72Decorator temp = (Student72Decorator)studentRepo.next();	
+            //Student72Decorator temp = (Student72Decorator)studentRepo.next();
+        	StudentGrades72Decorator gradeDec = null;
             String asurite = temp.getAsurite();
             if(gradeMap.containsKey(asurite))
             {
@@ -55,8 +56,10 @@ public class Grader73 {
                 for(int i = 1; i < columns.size(); ++i)
                 {
                     //temp.add(new StudentGrades72Decorator(columns.get(i), Integer.parseInt(gradesSplit[i - 1])), 100);
-                    new StudentGrades72Decorator(columns.get(i), Integer.parseInt(gradesSplit[i-1]), 100);         
+                	gradeDec = new StudentGrades72Decorator(columns.get(i), Integer.parseInt(gradesSplit[i-1]), 100);         
                 }
+                temp.setGrades(gradeDec.getGrades());   
+                StudentGrades72Decorator.grades.clear();
             }
             else
             {

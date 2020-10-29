@@ -10,9 +10,9 @@ public class Main71 {
     public static void main(String[] args) {
 
 //        Student71 ria= new Student71("roster-x.csv");
-        StudentRepository71 studentRepository71 = new StudentRepository71("roster-x.csv");
+        StudentRepository71 studentRepository71 = new StudentRepository71();
 
-        StudentSubject71 studentSubject71 = new StudentSubject71();
+        //StudentSubject71 studentSubject71 = new StudentSubject71();
         for(Iterator71 iter = studentRepository71.getIterator(); iter.hasNext();){
             Student71 student71 = (Student71)iter.next();
             System.out.println("ID: "+ student71.getId());

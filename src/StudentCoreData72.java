@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 /*
 /*
 Author: Anurag Mishra
@@ -14,6 +16,8 @@ public class StudentCoreData72 extends Student71 {
     private String academic_level;
     private String asurite;
     private String[] data;
+    private static LinkedList<Grades72> grades = new LinkedList<Grades72>();
+	private static LinkedList<Attendance72> attendanceList = new LinkedList<Attendance72>();
 
     public StudentCoreData72(String studentData){
         data=studentData.split(",");
@@ -74,6 +78,24 @@ public class StudentCoreData72 extends Student71 {
         this.asurite=asurite;
         notifyObservers();
     }
+    
+    //------------------------------------------------------------------------
+
+	public LinkedList<Grades72> getGrades() {
+		return grades;
+	}
+
+	public void setGrades(LinkedList<Grades72> grades) {
+		StudentCoreData72.grades = grades;
+	}
+
+	public LinkedList<Attendance72> getAttendanceList() {
+		return attendanceList;
+	}
+
+	public void setAttendanceList(LinkedList<Attendance72> attendanceList) {
+		StudentCoreData72.attendanceList = attendanceList;
+	}
 
 
     /*public void printValue(){

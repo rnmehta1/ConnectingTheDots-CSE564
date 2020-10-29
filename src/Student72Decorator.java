@@ -10,6 +10,15 @@ public class Student72Decorator extends Student71 {
 	protected static LinkedList<Grades72> grades = new LinkedList<Grades72>();
 	protected static LinkedList<Attendance72> attendanceList = new LinkedList<Attendance72>();
 	
+	public Student72Decorator() {
+	}
+	
+	public Student72Decorator(Student71 student,LinkedList<Grades72> grades,LinkedList<Attendance72> attendanceList) {
+		this.student = student;
+		Student72Decorator.grades = grades;
+		Student72Decorator.attendanceList = attendanceList;
+	}
+	
 	public void add(Student71 student) {
 		this.student = student;
 	}
