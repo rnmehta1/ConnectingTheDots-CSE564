@@ -83,7 +83,4 @@ public class Student72Decorator extends Student71 {
 		this.attendanceList.add(attendance);
 	}
 
-	public void setStudent72DecoratorGrade(LinkedList<String> gradesList, String asurite){
-		Iterator71 iter= new
-	}
 }
